@@ -1,12 +1,23 @@
+
 <html>
     <head>
         <title>Map Data Across the Globe</title>
+        <style>
+            .r1{
+                z-index:1 ;
+			    position:relative;
+            }
+            .r2{
+                z-index:-1 ;
+			    position:relative;
+            }
+        </style>
     </head>
     <body>
         <svg width="400" height="110">
-            <rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" />
+            <rect class = 'r1' width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" />
+            <rect class = 'r2' width="200" height="100" style="fill:rgb(0,255,255);stroke-width:3;stroke:rgb(0,0,0)" />
         </svg>
 
     </body>
 
-</html>

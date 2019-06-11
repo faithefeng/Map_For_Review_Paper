@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <style type="text/css">
+        .tip {
+            width: 200px;
+            height: 80px;
+            display: none;
+            background-color: #f6f7f7;
+            color: #333333;
+            line-height: 18px;
+            border: 1px solid #e1e3e2;
+            padding: 5px;
+        }
+    </style>
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript">
+        d3.select("#createtale")
+            .on('mouseover',function(d){
+                //获取鼠标位置函数
+                var mousePos = mousePosition(e);
+                var  xOffset = 20;
+                var  yOffset = 25;
+                d3.select("#tooltip").css("display","block").css("position","absolute").css("top",(mousePos.y - yOffset) + "px").css("left",(mousePos.x + xOffset) + "px");
+                d3.select("#tooltip").append("悬浮窗内容");
+            })
+            .on('mouseout',function(d){
+                d3.select('#tooltip').css("display","none");
+            });
+    </script>
+    <script type="text/javascript">
+        //获取鼠标坐标
+        function mousePosition(ev){ 
+            ev = ev || window.event; 
+            if(ev.pageX || ev.pageY){ 
+                return {x:ev.pageX, y:ev.pageY}; 
+            } 
+            return { 
+                x:ev.clientX + document.body.scrollLeft - document.body.clientLeft, 
+                y:ev.clientY + document.body.scrollTop - document.body.clientTop 
+            }; 
+        }
+    </script>
+        
+        
+</head>
+
+<body>
+
+    <div id="tooltip" class="tip">
+        <p>test_Text</p>
+    </div>
+    <div id="createtable">
+      <p>I am a table</p>
+    </div>
+
+</body>
+
+</html>
